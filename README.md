@@ -19,7 +19,7 @@ It was built twice: once as MATLAB code (4 phases) and once as an equivalent Sim
 ## Results
 
 **MATLAB — full signal chain (throttle → current → acceleration → SOC)**
-![MATLAB Phase 3 result](images/04_matlab_phase3_full_chain_result.png)
+![MATLAB Phase 3 result](images/04_matlab_phase3_full_chain_result_v2.png)
 
 **MATLAB — signal processing: recovering a clean current signal from a noisy sensor reading**
 ![Filtered signal](images/07_matlab_phase4_filtered_signal.png)
