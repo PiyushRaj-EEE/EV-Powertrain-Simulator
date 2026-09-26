@@ -140,11 +140,12 @@ The same model was then driven by a realistic current profile (idle → accelera
 | Fan (forced air) | ~72.6°C | ~36.8°C |
 | Liquid cooling | ~31.0°C | ~32.5°C |
 
+![no cooling — drive cycle](images/21_simulink_phase4_result_nocooling_drivecycle.png)
+
 ![Fan cooling — drive cycle](images/19_simulink_phase4_result_fancooling_drivecycle.png)
 
 ![liquid cooling — drive cycle](images/20_simulink_phase4_result_liquidcooling_drivecycle.png)
 
-![no cooling — drive cycle](images/21_simulink_phase4_result_nocooling_drivecycle.png)
 
 Only liquid cooling kept the cell in a safe range under both test conditions. This wasn't assumed going in — it fell out of the model itself, and it's the same conclusion every real EV manufacturer has reached: natural or fan cooling alone isn't enough once you're pulling real current. The drive-cycle test also revealed that regenerative braking still generates measurable heat, since heat generation depends on current *magnitude* (I²), not direction.
 
