@@ -16,6 +16,7 @@ This project was built to deeply understand how the pieces of an EV powertrain i
 | Part 5 | Motor control (FOC) | Planned |
 | Part 6 | Full integration | Planned |
 
+## Part 1: Powertrain simulator 
 ![Annotated Simulink Motor Model](images/14_simulink_phase3_annotated_diagram.png)
 
 ## What it simulates
@@ -93,14 +94,6 @@ Full formula sheet, parameter values, and every design decision explained in [`E
 - **Units mismatch in Simulink** — a gain calculated for an "hours" time base silently broke when the model switched to a "seconds" time base, causing SOC to crash 3600x faster than expected. Same class of bug as keeping `dt` in hours to match Amp-hours back in the MATLAB version.
 - **Block order matters, not just block values** — a correctly-configured Saturation block did nothing because it was placed *after* the signal had already been scaled down to a tiny SOC-rate number instead of clamping the raw current itself.
 
-## Tools used
-
-MATLAB, Simulink (Signal Editor, Integrator, Saturation, Product, Sum, Gain blocks), Coulomb counting, FFT / DTFT-based signal analysis, FIR filtering.
-
-## Author
-
-Piyush — built as a self-directed project alongside coursework in Digital Signal Processing, with an interest in the EV industry.
-
 ## Part 2: Battery Thermal Model
 
 Part 1 answered how much charge a battery has left and how the motor responds to throttle. Part 2 asks a different question: what happens to the battery's *temperature* while all of that is happening — and whether it stays safe.
@@ -166,27 +159,6 @@ Only liquid cooling kept the cell in a safe range under both test conditions. Th
 - `Simulinks/battery_thermal_model.slx` — steady-current model
 - `Simulinks/battery_thermal_model_phase2.slx` — drive-cycle model
 - `matlab/drive_cycle_setup.m` — drive cycle definition script
-
-## Project Structure
-
-```
-EV-Powertrain-Simulator/
-├── Simulinks/
-│   ├── ev_phase1.slx                        # Phase 1: SOC model
-│   ├── ev_phase2.slx                        # Phase 2: Driving profile
-│   ├── ev_phase3.slx                        # Phase 3: Motor electrical model
-│   ├── battery_thermal_model.slx            # Phase 4: Thermal model (steady-current)
-│   └── battery_thermal_model_phase2.slx     # Phase 4: Thermal model (drive-cycle)
-├── matlab/
-│   ├── speed_profile.mat
-│   ├── throttle_profile.mat
-│   ├── driving_profile.mat
-│   └── drive_cycle_setup.m                  # Phase 4 drive cycle definition
-├── images/                                  # Result screenshots, numbered by phase
-├── EV_Powertrain_Simulator_Notes.pdf
-└── README.md
-```
-
 
 ### Part 3: Battery Management System
 State-of-charge estimation with an Extended Kalman Filter, passive cell balancing and
