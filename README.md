@@ -4,6 +4,18 @@ A simulation of an electric vehicle's core systems — battery, motor, controlle
 
 This project was built to deeply understand how the pieces of an EV powertrain interact, not just to produce a working script. Every phase started from the governing physical equation, was implemented, run, and then debugged using physical reasoning whenever the output looked wrong.
 
+
+ ## Project roadmap
+
+| Part | Description | Status |
+|---|---|---|
+| Part 1 | Powertrain simulator | Done |
+| Part 2 | Battery thermal model | Done |
+| [Part 3](Part3_BMS) | Battery management system (EKF SOC estimation, cell balancing, protection logic) | Done |
+| Part 4 | CC-CV charging | Planned |
+| Part 5 | Motor control (FOC) | Planned |
+| Part 6 | Full integration | Planned |
+
 ![Annotated Simulink Motor Model](images/14_simulink_phase3_annotated_diagram.png)
 
 ## What it simulates
@@ -174,3 +186,10 @@ EV-Powertrain-Simulator/
 ├── EV_Powertrain_Simulator_Notes.pdf
 └── README.md
 ```
+
+
+### Part 3: Battery Management System
+State-of-charge estimation with an Extended Kalman Filter, passive cell balancing and
+protection logic, built on top of Parts 1 and 2.
+See the [Part 3 folder](Part3_BMS) and the
+[revision notes (PDF)](Part3_BMS/Part3_BMS_Revision_Notes.pdf).
